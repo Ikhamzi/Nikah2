@@ -33,16 +33,6 @@ It goes beyond traditional swiping apps by focusing on **quality matches, shared
 
 ---
 
-## 🧩 Pages Included
-
-- 🏠 Home  
-- ⚙️ How It Works  
-- 🌍 Communities  
-- 💖 Success Stories  
-- 💳 Membership / Pricing  
-
----
-
 ## 🛠️ Tech Stack
 
 > *(Update based on your actual implementation)*
@@ -52,5 +42,3 @@ It goes beyond traditional swiping apps by focusing on **quality matches, shared
 - **Database:** MongoDB / PostgreSQL  
 - **APIs:** Real-time chat & video integration  
 - **Styling:** Tailwind CSS  
-
----
