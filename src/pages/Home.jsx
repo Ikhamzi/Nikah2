@@ -245,15 +245,15 @@ export default function Home() {
               </Link>
             </div>
 
-            {/* Stats row */}
-            <div className="mt-16 grid grid-cols-3 gap-6 max-w-2xl mx-auto">
+            {/* Stats row - can be re-enabled if needed */}
+            {/* <div className="mt-16 grid grid-cols-3 gap-6 max-w-2xl mx-auto">
               {[["60 Lakh+", "Success Stories"], ["35 Lakh+", "Verified Profiles"], ["2.1M+", "App Reviews"]].map(([val, label]) => (
                 <div key={label} className="stat-card rounded-2xl p-5">
                   <div className="text-2xl font-bold gold-text mb-1">{val}</div>
                   <div className="text-xs text-[#888]" style={{ fontFamily: "'DM Sans', sans-serif" }}>{label}</div>
                 </div>
               ))}
-            </div>
+            </div> */}
           </div>
         </section>
 
