@@ -1,16 +1,56 @@
-# React + Vite
+# 💍 Nikah2 – The Second Chance
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern matchmaking platform focused on meaningful connections, privacy, and community-based relationships.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 🌟 Overview
 
-## React Compiler
+**Nikah2** is a wedding and dating platform designed to help individuals find genuine, long-term connections in a safe and respectful environment.  
+It goes beyond traditional swiping apps by focusing on **quality matches, shared values, and real conversations**.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## ✨ Features
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- 🔐 **Private Chat Rooms**  
+  Secure and distraction-free conversations between users  
+
+- 📹 **Video Calling**  
+  Built-in video calling to connect safely without sharing personal details  
+
+- 🌍 **Community-Based Matching**  
+  Find matches within communities like Muslim, Hindu, Sikh, and more  
+
+- 👤 **Verified Profiles**  
+  Ensuring authenticity and trust  
+
+- 💡 **Smart Match Recommendations**  
+  Personalized suggestions based on preferences  
+
+- 📱 **Modern UI/UX**  
+  Elegant, responsive design with a romantic aesthetic  
+
+---
+
+## 🧩 Pages Included
+
+- 🏠 Home  
+- ⚙️ How It Works  
+- 🌍 Communities  
+- 💖 Success Stories  
+- 💳 Membership / Pricing  
+
+---
+
+## 🛠️ Tech Stack
+
+> *(Update based on your actual implementation)*
+
+- **Frontend:** React / Next.js  
+- **Backend:** Node.js / Express / Django  
+- **Database:** MongoDB / PostgreSQL  
+- **APIs:** Real-time chat & video integration  
+- **Styling:** Tailwind CSS  
+
+---
