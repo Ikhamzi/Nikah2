@@ -85,7 +85,84 @@ const features = [
 
 export default function Home() {
   const [openFaq, setOpenFaq] = useState(null);
+  const [selectedCountry, setSelectedCountry] = useState("India");
   const scrollRef = useRef(null);
+
+  // Hardcoded online people by country
+  const onlinePeopleByCountry = {
+    India: [
+      { name: "Priya S.", age: 28, city: "Mumbai", image: "👩" },
+      { name: "Anjali M.", age: 26, city: "Delhi", image: "👩" },
+      { name: "Neha K.", age: 29, city: "Bangalore", image: "👩" },
+      { name: "Divya R.", age: 27, city: "Hyderabad", image: "👩" },
+      { name: "Swati P.", age: 25, city: "Pune", image: "👩" },
+    ],
+    USA: [
+      { name: "Sarah M.", age: 30, city: "New York", image: "👩" },
+      { name: "Jessica L.", age: 28, city: "Los Angeles", image: "👩" },
+      { name: "Emily C.", age: 27, city: "Chicago", image: "👩" },
+      { name: "Rachel H.", age: 29, city: "Houston", image: "👩" },
+      { name: "Michelle D.", age: 26, city: "Phoenix", image: "👩" },
+    ],
+    UK: [
+      { name: "Emma W.", age: 29, city: "London", image: "👩" },
+      { name: "Sophie B.", age: 27, city: "Manchester", image: "👩" },
+      { name: "Charlotte K.", age: 28, city: "Birmingham", image: "👩" },
+      { name: "Olivia T.", age: 30, city: "Bristol", image: "👩" },
+      { name: "Lucy J.", age: 26, city: "Edinburgh", image: "👩" },
+    ],
+    Canada: [
+      { name: "Jennifer H.", age: 28, city: "Toronto", image: "👩" },
+      { name: "Amanda L.", age: 27, city: "Vancouver", image: "👩" },
+      { name: "Nicole R.", age: 29, city: "Montreal", image: "👩" },
+      { name: "Laura M.", age: 26, city: "Calgary", image: "👩" },
+      { name: "Katie S.", age: 28, city: "Ottawa", image: "👩" },
+    ],
+    Australia: [
+      { name: "Melissa G.", age: 29, city: "Sydney", image: "👩" },
+      { name: "Rebecca P.", age: 27, city: "Melbourne", image: "👩" },
+      { name: "Jessica N.", age: 28, city: "Brisbane", image: "👩" },
+      { name: "Lauren T.", age: 26, city: "Perth", image: "👩" },
+      { name: "Samantha W.", age: 30, city: "Adelaide", image: "👩" },
+    ],
+    UAE: [
+      { name: "Fatima A.", age: 27, city: "Dubai", image: "👩" },
+      { name: "Aisha M.", age: 28, city: "Abu Dhabi", image: "👩" },
+      { name: "Layla S.", age: 26, city: "Sharjah", image: "👩" },
+      { name: "Noor K.", age: 29, city: "Ajman", image: "👩" },
+      { name: "Hana R.", age: 25, city: "Fujairah", image: "👩" },
+    ],
+    Singapore: [
+      { name: "Mei L.", age: 28, city: "Singapore", image: "👩" },
+      { name: "Chen W.", age: 27, city: "Central", image: "👩" },
+      { name: "Lin Y.", age: 29, city: "East", image: "👩" },
+      { name: "Wei H.", age: 26, city: "North", image: "👩" },
+      { name: "Hui X.", age: 28, city: "West", image: "👩" },
+    ],
+    Malaysia: [
+      { name: "Nur A.", age: 27, city: "Kuala Lumpur", image: "👩" },
+      { name: "Aisyah M.", age: 28, city: "Selangor", image: "👩" },
+      { name: "Zainab R.", age: 26, city: "Penang", image: "👩" },
+      { name: "Siti K.", age: 29, city: "Johor", image: "👩" },
+      { name: "Nadia T.", age: 25, city: "Perak", image: "👩" },
+    ],
+    "New Zealand": [
+      { name: "Sophie A.", age: 28, city: "Auckland", image: "👩" },
+      { name: "Hannah K.", age: 27, city: "Wellington", image: "👩" },
+      { name: "Emma J.", age: 29, city: "Christchurch", image: "👩" },
+      { name: "Grace M.", age: 26, city: "Hamilton", image: "👩" },
+      { name: "Lily B.", age: 28, city: "Tauranga", image: "👩" },
+    ],
+    Germany: [
+      { name: "Anna S.", age: 29, city: "Berlin", image: "👩" },
+      { name: "Julia M.", age: 27, city: "Munich", image: "👩" },
+      { name: "Sophia K.", age: 28, city: "Frankfurt", image: "👩" },
+      { name: "Mia H.", age: 26, city: "Hamburg", image: "👩" },
+      { name: "Lena F.", age: 30, city: "Cologne", image: "👩" },
+    ],
+  };
+
+  const countries = Object.keys(onlinePeopleByCountry);
 
   const scrollStories = (dir) => {
     if (scrollRef.current) {
@@ -219,7 +296,7 @@ export default function Home() {
         <Navbar />
 
         {/* ── HERO ── */}
-        <section className="hero-glow min-h-screen flex flex-col items-center justify-center text-center px-6 pt-24 pb-16 relative">
+        <section className="hero-glow min-h-screen flex flex-col items-center justify-center px-6 pt-24 pb-16 relative">
           {/* Decorative rings */}
           <div className="absolute inset-0 flex items-center justify-center pointer-events-none overflow-hidden">
             <div className="w-[700px] h-[700px] rounded-full border border-[#E8A9A9]/20 animate-float" style={{ animationDelay: "0s" }} />
@@ -227,33 +304,94 @@ export default function Home() {
             <div className="w-[900px] h-[900px] rounded-full border border-[#E8A9A9]/10 absolute animate-float" style={{ animationDelay: "2s" }} />
           </div>
 
-          <div className="relative z-10 max-w-4xl mx-auto">
-            <p className="text-[#D4AF37] text-sm tracking-[0.3em] uppercase mb-6" style={{ fontFamily: "'DM Sans', sans-serif" }}>India's Most Trusted Matchmaking Platform</p>
-            <h1 className="text-5xl md:text-7xl font-bold leading-tight mb-6">
-              Where <span className="gold-text">Lifelong</span><br />
-              Bonds Begin
-            </h1>
-            <p className="text-lg text-[#666] max-w-2xl mx-auto mb-10 leading-relaxed" style={{ fontFamily: "'DM Sans', sans-serif" }}>
-              Beyond a matrimony website — Nikah is a deeply personal journey toward finding someone who truly complements your world. Over <strong className="text-[#D4AF37]">60 Lakh</strong> couples have already found their forever here.
-            </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Link to="/how-it-works" className="btn-primary text-base font-semibold px-8 py-4 rounded-full text-white shadow-lg shadow-[#D4AF37]/20 inline-flex" style={{ fontFamily: "'DM Sans', sans-serif" }}>
-                <span>Begin Your Journey →</span>
-              </Link>
-              <Link to="/membership" className="text-sm text-[#666] hover:text-[#2D2D2D] transition-colors border border-[#EADBC8] hover:border-[#D4AF37] px-7 py-4 rounded-full" style={{ fontFamily: "'DM Sans', sans-serif" }}>
-                Explore Profiles
-              </Link>
+          <div className="relative z-10 w-full max-w-6xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
+            {/* Left Content */}
+            <div>
+              <p className="text-[#D4AF37] text-sm tracking-[0.3em] uppercase mb-6" style={{ fontFamily: "'DM Sans', sans-serif" }}>India's Most Trusted Matchmaking Platform</p>
+              <h1 className="text-5xl md:text-6xl font-bold leading-tight mb-6">
+                Where <span className="gold-text">Lifelong</span><br />
+                Bonds Begin
+              </h1>
+              <p className="text-lg text-[#666] mb-10 leading-relaxed" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+                Beyond a matrimony website — Nikah is a deeply personal journey toward finding someone who truly complements your world. Over <strong className="text-[#D4AF37]">60 Lakh</strong> couples have already found their forever here.
+              </p>
+              <div className="flex flex-col sm:flex-row items-start gap-4">
+                <Link to="/how-it-works" className="btn-primary text-base font-semibold px-8 py-4 rounded-full text-white shadow-lg shadow-[#D4AF37]/20 inline-flex" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+                  <span>Begin Your Journey →</span>
+                </Link>
+                <Link to="/explore" className="text-sm text-[#666] hover:text-[#2D2D2D] transition-colors border border-[#EADBC8] hover:border-[#D4AF37] px-7 py-4 rounded-full" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+                  Explore People
+                </Link>
+              </div>
             </div>
 
-            {/* Stats row - can be re-enabled if needed */}
-            {/* <div className="mt-16 grid grid-cols-3 gap-6 max-w-2xl mx-auto">
-              {[["60 Lakh+", "Success Stories"], ["35 Lakh+", "Verified Profiles"], ["2.1M+", "App Reviews"]].map(([val, label]) => (
-                <div key={label} className="stat-card rounded-2xl p-5">
-                  <div className="text-2xl font-bold gold-text mb-1">{val}</div>
-                  <div className="text-xs text-[#888]" style={{ fontFamily: "'DM Sans', sans-serif" }}>{label}</div>
+            {/* Right Tab with Online People - 2 Column Layout */}
+            <div className="rounded-3xl p-8 shadow-xl shadow-black/5 flex gap-6" style={{
+              background: "rgba(255,255,255,0.7)",
+              backdropFilter: "blur(20px)",
+              border: "1px solid rgba(212,175,55,0.15)",
+            }}>
+              {/* Left: Country Filter */}
+              <div className="w-32 border-r border-[#EADBC8]">
+                <h4 className="text-xs font-bold text-[#666] uppercase tracking-wide mb-4" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+                  Countries
+                </h4>
+                <div className="flex flex-col gap-2 max-h-96 overflow-y-auto">
+                  {countries.map((country) => (
+                    <button
+                      key={country}
+                      onClick={() => setSelectedCountry(country)}
+                      className={`px-3 py-2 rounded-lg text-xs font-medium text-left transition-all ${selectedCountry === country
+                          ? "text-white shadow-lg"
+                          : "text-[#666] hover:text-[#D4AF37] hover:bg-[#F8C8DC]/20"
+                        }`}
+                      style={{
+                        fontFamily: "'DM Sans', sans-serif",
+                        background: selectedCountry === country ? "linear-gradient(135deg, #D4AF37 0%, #E8A9A9 100%)" : "transparent",
+                      }}
+                    >
+                      {country}
+                    </button>
+                  ))}
                 </div>
-              ))}
-            </div> */}
+              </div>
+
+              {/* Right: Online People List */}
+              <div className="flex-1">
+                <div className="mb-4">
+                  <h3 className="text-lg font-bold text-[#2D2D2D]" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+                    👥 Online in {selectedCountry}
+                  </h3>
+                  <p className="text-xs text-[#888]" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+                    Verified members looking now
+                  </p>
+                </div>
+
+                <div className="space-y-3 max-h-80 overflow-y-auto">
+                  {onlinePeopleByCountry[selectedCountry].map((person, idx) => (
+                    <div
+                      key={idx}
+                      className="flex items-center gap-3 p-3 rounded-xl bg-white/60 border border-[#EADBC8] hover:border-[#D4AF37] hover:bg-white transition-all cursor-pointer"
+                    >
+                      <div className="text-3xl">{person.image}</div>
+                      <div className="flex-1 min-w-0">
+                        <h4 className="font-semibold text-[#2D2D2D] text-sm truncate">{person.name}</h4>
+                        <p className="text-xs text-[#888]" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+                          {person.age} • {person.city}
+                        </p>
+                      </div>
+                      <div className="text-xl">🟢</div>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="mt-6 p-3 rounded-lg bg-[#F8C8DC]/20 border border-[#E8A9A9]/30">
+                  <p className="text-xs text-[#666]" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+                    <strong className="text-[#D4AF37]">💡 Tip:</strong> Chat with up to 5 people free.
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
         </section>
 

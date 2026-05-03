@@ -6,6 +6,7 @@ import Communities from './pages/Communities.jsx'
 import SuccessStories from './pages/SuccessStories.jsx'
 import Login from './pages/Login.jsx'
 import Signup from './pages/Signup.jsx'
+import Explore from './pages/Explore.jsx'
 import './App.css'
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
       <Route path="/success-stories" element={<SuccessStories />} />
       <Route path="/login" element={<Login />} />
       <Route path="/signup" element={<Signup />} />
+      <Route path="/explore" element={<Explore />} />
     </Routes>
   )
 }

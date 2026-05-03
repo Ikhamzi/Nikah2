@@ -39,7 +39,7 @@ const plans = [
     features: [
       { icon: "👤", text: "Basic Profile", included: true },
       { icon: "🔍", text: "Browse Matches", included: true },
-      { icon: "💝", text: "5 Likes/Day", included: true },
+      { icon: "�", text: "5 Chats/Day", included: true },
       { icon: "❌", text: "Private Chat Rooms", included: false },
       { icon: "❌", text: "Video Calling", included: false },
       { icon: "❌", text: "Priority Visibility", included: false },
@@ -54,27 +54,11 @@ const plans = [
     features: [
       { icon: "👤", text: "Enhanced Profile", included: true },
       { icon: "🔍", text: "Unlimited Browsing", included: true },
-      { icon: "💝", text: "Unlimited Likes", included: true },
+      { icon: "💝", text: "Unlimited Chats", included: true },
       { icon: "💬", text: "Private Chat Rooms", included: true },
       { icon: "📹", text: "Video Calling", included: true },
       { icon: "⭐", text: "Priority Visibility", included: true },
-      { icon: "🎯", text: "Match Recommendations", included: true },
-    ],
-  },
-  {
-    name: "Elite",
-    price: "₹999",
-    period: "/month",
-    popular: false,
-    features: [
-      { icon: "👤", text: "Premium Profile Badge", included: true },
-      { icon: "🔍", text: "Unlimited Browsing", included: true },
-      { icon: "💝", text: "Unlimited Likes", included: true },
-      { icon: "💬", text: "Private Chat Rooms", included: true },
-      { icon: "📹", text: "HD Video Calling", included: true },
-      { icon: "⭐", text: "Top Visibility", included: true },
       { icon: "🎯", text: "AI Match Recommendations", included: true },
-      { icon: "👑", text: "Dedicated Relationship Manager", included: true },
     ],
   },
 ];
@@ -208,14 +192,14 @@ export default function HowItWorks() {
                 {steps.map((step, i) => (
                   <div key={i} className="relative flex flex-col items-center">
                     <div className="relative z-10 w-20 h-20 rounded-full flex items-center justify-center text-3xl mb-5 card-hover"
-                      style={{ 
+                      style={{
                         background: i % 2 === 0 ? "linear-gradient(135deg, #FFF8F0, #F8C8DC)" : "linear-gradient(135deg, #F8E8E8, #FFF8F0)",
                         border: "2px solid rgba(212,175,55,0.3)",
                         boxShadow: "0 10px 40px rgba(212,175,55,0.15)"
                       }}>
                       {step.icon}
                     </div>
-                    <div className="text-center bg-white/60 rounded-2xl p-5 card-hover" 
+                    <div className="text-center bg-white/60 rounded-2xl p-5 card-hover"
                       style={{ border: "1px solid rgba(232,169,169,0.3)", boxShadow: "0 8px 30px rgba(212,175,55,0.1)" }}>
                       <div className="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold mb-3 mx-auto"
                         style={{ background: "linear-gradient(135deg, #D4AF37, #E8A9A9)", color: "white" }}>
@@ -253,18 +237,18 @@ export default function HowItWorks() {
               </p>
             </div>
 
-            <div className="grid md:grid-cols-3 gap-8">
+            <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
               {plans.map((plan, i) => (
                 <div key={i} className={`relative rounded-3xl p-8 card-hover ${plan.popular ? "md:-mt-4" : ""}`}
-                  style={{ 
-                    background: plan.popular 
-                      ? "linear-gradient(135deg, #FFF8F0 0%, #F8E8E8 100%)" 
+                  style={{
+                    background: plan.popular
+                      ? "linear-gradient(135deg, #FFF8F0 0%, #F8E8E8 100%)"
                       : "white",
-                    border: plan.popular 
-                      ? "2px solid rgba(212,175,55,0.4)" 
+                    border: plan.popular
+                      ? "2px solid rgba(212,175,55,0.4)"
                       : "1px solid rgba(232,169,169,0.3)",
-                    boxShadow: plan.popular 
-                      ? "0 20px 60px rgba(212,175,55,0.2)" 
+                    boxShadow: plan.popular
+                      ? "0 20px 60px rgba(212,175,55,0.2)"
                       : "0 10px 40px rgba(212,175,55,0.1)"
                   }}>
                   {/* Popular Badge */}
@@ -288,7 +272,7 @@ export default function HowItWorks() {
                     {plan.features.map((feature, j) => (
                       <div key={j} className="flex items-center gap-3">
                         <span className="text-lg">{feature.icon}</span>
-                        <span className={`text-sm ${feature.included ? "text-[#2D2D2D]" : "text-[#AAA]"}`} 
+                        <span className={`text-sm ${feature.included ? "text-[#2D2D2D]" : "text-[#AAA]"}`}
                           style={{ fontFamily: "'DM Sans', sans-serif", textDecoration: feature.included ? "none" : "line-through" }}>
                           {feature.text}
                         </span>

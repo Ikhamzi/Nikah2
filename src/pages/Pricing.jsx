@@ -11,12 +11,12 @@ const plans = [
     features: [
       "Create and customize your profile",
       "Browse limited matches",
-      "Send limited messages",
+      "Send up to 5 messages per day",
       "Join basic community spaces",
       "Standard profile visibility",
     ],
     limitations: [
-      "Limited chats",
+      "Limited chats (5 per day)",
       "No video calling",
       "No priority exposure",
     ],
@@ -28,7 +28,7 @@ const plans = [
     badge: "Most Popular",
     price: "₹499",
     period: "/month",
-    bestFor: "Serious users ready to connect",
+    bestFor: "Serious users ready to find their match",
     features: [
       "Unlimited profile browsing",
       "Unlimited messaging",
@@ -37,43 +37,29 @@ const plans = [
       "Priority profile visibility",
       "Smart match recommendations",
       "Enhanced privacy controls",
-    ],
-    limitations: [],
-    whyUpgrade:
-      "Move beyond limits and build real connections faster with full access to communication tools.",
-    cta: "Get Premium",
-    popular: true,
-  },
-  {
-    name: "Elite",
-    badge: "High Intent Users",
-    price: "₹999",
-    period: "/month",
-    bestFor: "Finding the best matches quickly",
-    features: [
-      "All Premium features",
-      "Top profile highlighting (more visibility)",
+      "Top profile highlighting (maximum visibility)",
       "Verified badge for trust",
       "Early access to new matches",
       "Exclusive community access",
-      "Dedicated support",
       "Personalized matchmaking suggestions",
     ],
     limitations: [],
     whyUpgrade:
-      "Stand out and get noticed by high-quality matches with maximum visibility and trust.",
-    cta: "Go Elite",
-    popular: false,
+      "Get full access to all features and stand out with maximum visibility and trust indicators.",
+    cta: "Get Premium",
+    popular: true,
   },
 ];
 
 const comparison = [
-  { feature: "Messaging", free: "Limited", premium: "Unlimited", elite: "Unlimited" },
-  { feature: "Private Chat Rooms", free: false, premium: true, elite: true },
-  { feature: "Video Calling", free: false, premium: true, elite: true },
-  { feature: "Profile Visibility", free: "Basic", premium: "Priority", elite: "Top Highlight" },
-  { feature: "Match Recommendations", free: "Basic", premium: "Smart", elite: "Personalized" },
-  { feature: "Verification Badge", free: false, premium: false, elite: true },
+  { feature: "Messaging", free: "Limited (5/day)", premium: "Unlimited" },
+  { feature: "Private Chat Rooms", free: false, premium: true },
+  { feature: "Video Calling", free: false, premium: true },
+  { feature: "Profile Visibility", free: "Basic", premium: "Top Highlight" },
+  { feature: "Match Recommendations", free: "Basic", premium: "Personalized" },
+  { feature: "Verification Badge", free: false, premium: true },
+  { feature: "Priority Exposure", free: false, premium: true },
+  { feature: "Early Access to Matches", free: false, premium: true },
 ];
 
 const valuePoints = [
@@ -288,7 +274,7 @@ export default function Pricing() {
             </h2>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8 items-start">
+          <div className="grid md:grid-cols-2 gap-8 items-start max-w-4xl mx-auto">
             {plans.map((plan, i) => (
               <div
                 key={i}
@@ -347,11 +333,10 @@ export default function Pricing() {
                 )}
 
                 <button
-                  className={`w-full py-3.5 rounded-full font-semibold transition-all ${
-                    plan.popular
+                  className={`w-full py-3.5 rounded-full font-semibold transition-all ${plan.popular
                       ? "btn-primary text-white"
                       : "border-2 border-[#D4AF37] text-[#D4AF37] hover:bg-[#D4AF37] hover:text-white"
-                  }`}
+                    }`}
                   style={{ fontFamily: "'DM Sans', sans-serif" }}
                 >
                   {plan.popular ? <span>{plan.cta}</span> : plan.cta}
@@ -383,7 +368,6 @@ export default function Pricing() {
                   <th className="text-[#2D2D2D] font-semibold">Feature</th>
                   <th className="text-[#2D2D2D] font-semibold">Free</th>
                   <th className="text-[#D4AF37] font-semibold">Premium</th>
-                  <th className="text-[#2D2D2D] font-semibold">Elite</th>
                 </tr>
               </thead>
               <tbody>
@@ -395,9 +379,6 @@ export default function Pricing() {
                     </td>
                     <td>
                       <Check value={row.premium} />
-                    </td>
-                    <td>
-                      <Check value={row.elite} />
                     </td>
                   </tr>
                 ))}

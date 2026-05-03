@@ -11,7 +11,7 @@ export default function Navbar() {
     { name: "How It Works", path: "/how-it-works" },
     { name: "Communities", path: "/communities" },
     { name: "Success Stories", path: "/success-stories" },
-    { name: "Pricing", path: "/membership" },
+    { name: "Explore", path: "/explore" },
   ];
 
   const toggleMenu = () => setIsOpen((prev) => !prev);
@@ -111,20 +111,18 @@ export default function Navbar() {
 
       {/* Mobile Menu Overlay */}
       <div
-        className={`fixed inset-0 z-40 transition-opacity duration-300 md:hidden ${
-          isOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
-        }`}
+        className={`fixed inset-0 z-40 transition-opacity duration-300 md:hidden ${isOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+          }`}
         style={{ background: "rgba(45,45,45,0.3)" }}
         onClick={closeMenu}
       />
 
       {/* Mobile Menu Dropdown */}
       <div
-        className={`fixed top-[76px] left-0 right-0 z-40 md:hidden transition-all duration-300 ease-out ${
-          isOpen
+        className={`fixed top-[76px] left-0 right-0 z-40 md:hidden transition-all duration-300 ease-out ${isOpen
             ? "opacity-100 translate-y-0"
             : "opacity-0 -translate-y-4 pointer-events-none"
-        }`}
+          }`}
         style={{
           background: "rgba(255,248,240,0.98)",
           backdropFilter: "blur(20px)",

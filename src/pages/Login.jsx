@@ -12,7 +12,7 @@ export default function Login() {
   };
 
   return (
-    <div className="min-h-screen flex">
+    <div className="h-screen flex overflow-hidden">
       {/* ── LEFT IMAGE PANEL ── */}
       <div
         className="hidden lg:flex w-1/2 relative items-center justify-center overflow-hidden"
@@ -41,7 +41,7 @@ export default function Login() {
       </div>
 
       {/* ── RIGHT FORM PANEL ── */}
-      <div className="w-full lg:w-1/2 flex items-center justify-center px-6 py-12 bg-[#FFF8F0]">
+      <div className="w-full lg:w-1/2 flex items-center justify-center px-6 bg-[#FFF8F0] overflow-hidden">
         <div className="w-full max-w-md">
           {/* Logo */}
           <div className="text-center mb-10">
